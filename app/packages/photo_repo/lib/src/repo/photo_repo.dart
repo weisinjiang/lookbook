@@ -4,7 +4,7 @@ import 'dart:typed_data';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/foundation.dart';
 
-class PhotoRepo{
+class PhotoRepo {
 
   final FirebaseStorage _firebaseStorage;
   static const String contentType = "image/png";
