@@ -8,5 +8,11 @@ class LookbookProvider extends BaseProvider {
   final List<LookbookImage> imageList = [];
   LookbookProvider();
 
+  Future<void> fetchLooks() async {
+    unSetError(notify: false);
+    setLoading();
+    
+  }
+
 
 }

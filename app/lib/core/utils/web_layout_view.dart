@@ -49,17 +49,21 @@ class WebLayoutView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return LayoutBuilder(
-      builder: (context, constraints) {
-        return Scaffold(
-          body: SizedBox(  
+    return Scaffold(  
+      body: LayoutBuilder(  
+        builder: (context, constraints) {
+          return SizedBox(
             height: constraints.maxHeight,
             child: SingleChildScrollView(  
-              child: builder(context, constraints, getDeviceDetails(constraints)),
+              child: builder(
+                context, 
+                constraints, 
+                getDeviceDetails(constraints)
+              ),
             ),
-          ),
-        );
-      }
+          );
+        },
+      ),
     );
   }
   

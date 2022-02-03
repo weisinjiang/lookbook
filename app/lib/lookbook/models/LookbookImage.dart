@@ -1,9 +1,9 @@
 class LookbookImage {
-  final String? imageURL;
+  final String imageURL;
   final String name;
 
   LookbookImage({
-    this.imageURL,
+    required this.imageURL,
     this.name = "unnamed"
   }); 
 
