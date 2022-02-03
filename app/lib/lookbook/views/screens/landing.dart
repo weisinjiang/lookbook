@@ -22,13 +22,13 @@ class _LandingScreenState extends State<LandingScreen> {
 
   double getLookWidth(DeviceDetails details, BoxConstraints constraints) {
     if (details.isComputer) {
-      return constraints.maxWidth * 0.25;
+      return constraints.maxWidth * 0.20;
     }
     else if (details.isTablet) {
-      return constraints.maxWidth * 0.40;
+      return constraints.maxWidth * 0.25;
     }
     else {
-      return constraints.maxWidth * 0.80;
+      return constraints.maxWidth * 0.43;
     }
   }
 
@@ -37,7 +37,7 @@ class _LandingScreenState extends State<LandingScreen> {
     return WebLayoutView(builder: (context, constraints, deviceDetails) {
       double width = getLookWidth(deviceDetails, constraints);
       return Padding(
-        padding: const EdgeInsets.all(50.0),
+        padding: const EdgeInsets.all(20.0),
         child: Center(
           child: Wrap(
             spacing: 15.0,

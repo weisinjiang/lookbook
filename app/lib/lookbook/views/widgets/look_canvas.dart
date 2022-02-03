@@ -14,9 +14,17 @@ class LookCanvas extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double height = (16/9) * width;
-    return Material(
-      borderRadius: BorderRadius.circular(20.0),
-      elevation: 10.0,
+    return GestureDetector(
+      onTap: () async => { 
+        await showDialog(
+          context: context, 
+          builder: (_) => ImagePopup(
+            image: lookImage, 
+            width: width,
+            isMobile: false,
+          )
+        )
+      },
       child: Container(  
         height: height,
         width: width,
@@ -29,6 +37,7 @@ class LookCanvas extends StatelessWidget {
           )
         ),
         child: Stack(  
+          clipBehavior: Clip.none,
           children: [
             Positioned(
               right: 0.0,
@@ -41,6 +50,41 @@ class LookCanvas extends StatelessWidget {
               )
             ),
           ],
+        ),
+      ),
+    );
+  }
+  
+}
+
+class ImagePopup extends StatelessWidget {
+  final LookbookImage image;
+  final double width;
+  final bool isMobile;
+
+  const ImagePopup({
+    Key? key, 
+    required this.image,
+    required this.width,
+    required this.isMobile
+  }) : super(key: key);
+  @override
+  Widget build(BuildContext context) {
+
+    double height = (16/9) * (width * 1.50);
+
+
+    return Dialog(
+      child: Container(  
+        width: width * 1.50,
+        height: height,
+        decoration: BoxDecoration(  
+          image: DecorationImage(  
+            image: NetworkImage(  
+              image.imageURL
+            ),
+            fit: BoxFit.cover
+          )
         ),
       ),
     );
