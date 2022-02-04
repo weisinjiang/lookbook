@@ -15,15 +15,16 @@ class LookCanvas extends StatelessWidget {
   Widget build(BuildContext context) {
     double height = (16/9) * width;
     return GestureDetector(
-      onTap: () async => { 
-        await showDialog(
+      onTap: () async { 
+        
+        return await showDialog(
           context: context, 
           builder: (_) => ImagePopup(
             image: lookImage, 
             width: width,
             isMobile: false,
           )
-        )
+        );
       },
       child: Container(  
         height: height,

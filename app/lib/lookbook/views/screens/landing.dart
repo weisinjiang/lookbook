@@ -4,6 +4,9 @@ import 'package:app/lookbook/views/widgets/look_canvas.dart';
 import 'package:flutter/material.dart';
 
 class LandingScreen extends StatefulWidget {
+
+  static const String path = "/looks";
+  
   const LandingScreen({Key? key}) : super(key: key);
 
   @override
