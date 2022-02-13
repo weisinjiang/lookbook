@@ -1,5 +1,7 @@
 import 'package:app/lookbook/models/LookbookImage.dart';
 import 'package:flutter/material.dart';
+import 'package:auto_route/auto_route.dart';
+import '../screens/looks_screen.dart';
 
 class LookCanvas extends StatelessWidget {
   final LookbookImage lookImage;
@@ -14,16 +16,10 @@ class LookCanvas extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double height = (16/9) * width;
-    return GestureDetector(
+    return InkWell(
       onTap: () async { 
-        
-        return await showDialog(
-          context: context, 
-          builder: (_) => ImagePopup(
-            image: lookImage, 
-            width: width,
-            isMobile: false,
-          )
+        context.router.replaceNamed(
+          "${LooksScreen.path}/${lookImage.id}"
         );
       },
       child: Container(  
